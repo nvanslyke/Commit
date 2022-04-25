@@ -31,4 +31,10 @@ def commit():
     origin = repo.remote('origin')
     origin.push()
 
-commit()
+
+i = 0
+while True:
+    update()
+    commit()
+    print("Committ # " + str(i))
+    i+=1

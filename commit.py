@@ -28,7 +28,7 @@ def commit():
     repo = git.Repo("C:\\Users\\nvans\\Desktop\\Github")
     repo.index.add(changing_file)
     repo.index.commit("Commit from Script")
-    origin = repo.remote(name ='origin')
+    origin = repo.remote('origin')
     origin.push()
 
 commit()

@@ -36,7 +36,7 @@ def commit():
 num = input("how many commits? ")
 
 
-for i in range(num):
+for i in range(int(num)):
     update()
     commit()
     print("Committ # " + str(i))

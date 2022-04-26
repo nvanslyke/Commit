@@ -14,7 +14,7 @@ def update():
     today_date = today.strftime("%b-%d-%Y")
     
     now = datetime.now()
-    current_time = now.strftime("%H:%M:%S")
+    current_time = now.strftime("%H:%M:%S.%f")[:-3]
     
     new_write = ("Day of Last Commit - " + today_date + "\n"
                  "Time of Last Commit - " + current_time)
@@ -30,13 +30,16 @@ def commit():
     repo = git.Repo("C:\\Users\\nvans\\Desktop\\Github")
     repo.index.add(changing_file)
     repo.index.commit("Commit from Script")
-    origin = repo.remote('origin')
-    origin.push()
+    #origin = repo.remote('origin')
+    #origin.push()
 
 
-i = 0
-while True:
+num = int(input("Number of Commits: "))
+
+for i in range(num):
     update()
     commit()
     print("Committ # " + str(i))
     i+=1
+
+os.system('git push')

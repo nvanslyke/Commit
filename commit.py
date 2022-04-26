@@ -2,8 +2,10 @@ import git
 from git import Repo
 from datetime import datetime
 from datetime import date
+import os
 
 changing_file = "numCommits.txt"
+origing = None
 
 def update():
     
@@ -24,17 +26,20 @@ def update():
     
 
 def commit():
-    
+    global origing
     repo = git.Repo("C:\\Users\\nvans\\Desktop\\Github")
     repo.index.add(changing_file)
     repo.index.commit("Commit from Script")
     origin = repo.remote('origin')
-    origin.push()
+    origing = origin
+
+num = input("how many commits? ")
 
 
-i = 0
-while True:
+for i in range(num):
     update()
     commit()
     print("Committ # " + str(i))
     i+=1
+
+origing.push

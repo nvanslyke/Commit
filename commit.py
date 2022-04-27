@@ -3,6 +3,7 @@ from git import Repo
 from datetime import datetime
 from datetime import date
 import os
+import time
 
 changing_file = "numCommits.txt"
 
@@ -36,6 +37,7 @@ def commit():
 
 num = int(input("Number of Commits: "))
 
+#start = time.time()
 for i in range(num):
     update()
     commit()
@@ -43,3 +45,5 @@ for i in range(num):
     i+=1
 
 os.system('git push')
+#end = time.time()
+#print(end - start)
